@@ -64,24 +64,23 @@ class _HomePageState extends State<HomePage> {
                     borderRadius: BorderRadius.circular(14.0),
                   ),
                   hintText: "Buscar producto",
-                  hintStyle: TextStyle(
-                    color: Color(0xff9D9EA0),
-                  ),
+                  hintStyle:
+                      TextStyle(color: Color(0xff9D9EA0), fontSize: 14.0),
                   filled: true,
                   suffixIcon: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16.0),
                       gradient: LinearGradient(
                         colors: [
-                          Color(0xffFF7B4D),
-                          Color(0xffF72727),
+                          Color(0xff5581F1),
+                          Color(0xff1153FC),
                         ],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: Color(0xffF72727).withOpacity(0.6),
+                          color: Color(0xff1153FC).withOpacity(0.6),
                           blurRadius: 7,
                           offset: Offset(0, 4),
                         ),
@@ -223,15 +222,15 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(30.0),
                         gradient: LinearGradient(
                           colors: [
-                            Color(0xffFF7B4D),
-                            Color(0xffF72727),
+                            Color(0xff5581F1),
+                            Color(0xff1153FC),
                           ],
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,
                         ),
                         boxShadow: [
                           BoxShadow(
-                            color: Color(0xffF72727).withOpacity(0.6),
+                            color: Color(0xff1153FC).withOpacity(0.6),
                             blurRadius: 7,
                             offset: Offset(0, 4),
                           ),
@@ -330,9 +329,9 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     "Promociones",
                     style: TextStyle(
-                      color: Color(0xffFA4F3E),
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
+                      color: Color(0xff212121),
+                      fontSize: 15.0,
+                      fontWeight: FontWeight.w900,
                     ),
                   ),
                 ],
@@ -367,16 +366,15 @@ class _HomePageState extends State<HomePage> {
                   return GestureDetector(
                     onTap: () => _controller.animateToPage(entry.key),
                     child: Container(
-                      width: 12.0,
-                      height: 12.0,
+                      width: 8.0,
+                      height: 8.0,
                       margin:
                           EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: (Theme.of(context).brightness == Brightness.dark
-                                ? Colors.white
-                                : Color(0xfffa4a11))
-                            .withOpacity(_current == entry.key ? 0.9 : 0.12),
+                        color: _current == entry.key
+                            ? Color.fromRGBO(0, 0, 0, 0.7)
+                            : Color.fromRGBO(0, 0, 0, 0.15),
                       ),
                     ),
                   );
@@ -390,9 +388,9 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     "Marcas",
                     style: TextStyle(
-                      color: Color(0xffFA4F3E),
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
+                      color: Color(0xff212121),
+                      fontSize: 15.0,
+                      fontWeight: FontWeight.w900,
                     ),
                   ),
                 ],
