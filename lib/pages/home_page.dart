@@ -25,12 +25,34 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black87),
+        title: Text(
+          "La tienda de Gian",
+          style: TextStyle(
+            color: Colors.black87,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.person_outline_outlined),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.shopping_cart),
+          ),
+        ],
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 12.0),
           child: Column(
             children: [
-              SizedBox(height: 20.0),
+              SizedBox(height: 10.0),
               TextField(
                 decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(
@@ -73,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                   fillColor: Color(0xffF7F8FA),
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 30),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -187,7 +209,7 @@ class _HomePageState extends State<HomePage> {
                   )
                 ],
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 30),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -302,9 +324,7 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              SizedBox(
-                height: 10,
-              ),
+              SizedBox(height: 16),
               Row(
                 children: [
                   Text(
@@ -318,7 +338,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               SizedBox(
-                height: 14,
+                height: 22,
               ),
               CarouselSlider(
                 options: CarouselOptions(
