@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -246,7 +247,6 @@ class _HomePageState extends State<HomePage> {
                   );
                 }).toList(),
               ),
-
               SizedBox(
                 height: 10,
               ),
@@ -258,6 +258,187 @@ class _HomePageState extends State<HomePage> {
                       color: Color(0xffFA4F3E),
                       fontSize: 20,
                       fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 14,
+              ),
+              GridView.count(
+                crossAxisCount: 2,
+                primary: true,
+                shrinkWrap: true,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                physics: ScrollPhysics(),
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.0),
+                          color: Colors.greenAccent,
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                  "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/zapatilla-running-adidas-4dfwd-01-1620291518.jpg?crop=1.00xw:0.848xh;0,0.152xh&resize=1600:*"),
+                              fit: BoxFit.cover)),
+                      child: Stack(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color(0xff121212),
+                                  Colors.transparent,
+                                ],
+                                begin: Alignment.bottomCenter,
+                                end: Alignment(0, 0.5),
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "Adidas",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15.0,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.0),
+                          color: Colors.greenAccent,
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                  "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/zapatilla-running-adidas-4dfwd-01-1620291518.jpg?crop=1.00xw:0.848xh;0,0.152xh&resize=1600:*"),
+                              fit: BoxFit.cover)),
+                      child: Stack(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color(0xff121212),
+                                  Colors.transparent,
+                                ],
+                                begin: Alignment.bottomCenter,
+                                end: Alignment(0, 0.5),
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "Adidas",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15.0,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.0),
+                          color: Colors.greenAccent,
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                  "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/zapatilla-running-adidas-4dfwd-01-1620291518.jpg?crop=1.00xw:0.848xh;0,0.152xh&resize=1600:*"),
+                              fit: BoxFit.cover)),
+                      child: Stack(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color(0xff121212),
+                                  Colors.transparent,
+                                ],
+                                begin: Alignment.bottomCenter,
+                                end: Alignment(0, 0.5),
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "Adidas",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15.0,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.0),
+                          color: Colors.greenAccent,
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                  "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/zapatilla-running-adidas-4dfwd-01-1620291518.jpg?crop=1.00xw:0.848xh;0,0.152xh&resize=1600:*"),
+                              fit: BoxFit.cover)),
+                      child: Stack(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color(0xff121212),
+                                  Colors.transparent,
+                                ],
+                                begin: Alignment.bottomCenter,
+                                end: Alignment(0, 0.5),
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "Adidas",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15.0,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
