@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -20,26 +22,25 @@ class _HomePageState extends State<HomePage> {
 
   int _current = 0;
   final CarouselController _controller = CarouselController();
+  List listBanner = [];
 
   @override
-  initState(){
+  initState() {
     super.initState();
     getBanners();
   }
 
-
-
-  getBanners()async{
+  getBanners() async {
     String _path = "http://192.168.1.5:8000/api/banner/";
     Uri _uri = Uri.parse(_path);
     http.Response response = await http.get(_uri);
-    if(response.statusCode==200){
-      print("Banners completos");
+    if (response.statusCode == 200) {
+      listBanner = json.decode(response.body);
+      setState(() {
 
+      });
     }
-
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -368,38 +369,38 @@ class _HomePageState extends State<HomePage> {
                       _current = index;
                       setState(() {});
                     }),
-                items: imgList.map<Widget>((e) {
+                items: listBanner.map<Widget>((item) {
                   return Container(
                     margin:
                         EdgeInsets.symmetric(horizontal: 4.0, vertical: 0.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16.0),
                       image: DecorationImage(
-                          image: NetworkImage(e), fit: BoxFit.cover),
+                          image: NetworkImage(item["image"]), fit: BoxFit.cover),
                     ),
                   );
                 }).toList(),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: imgList.asMap().entries.map((entry) {
-                  return GestureDetector(
-                    onTap: () => _controller.animateToPage(entry.key),
-                    child: Container(
-                      width: 8.0,
-                      height: 8.0,
-                      margin:
-                          EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: _current == entry.key
-                            ? Color.fromRGBO(0, 0, 0, 0.7)
-                            : Color.fromRGBO(0, 0, 0, 0.15),
-                      ),
-                    ),
-                  );
-                }).toList(),
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: imgList.asMap().entries.map((entry) {
+              //     return GestureDetector(
+              //       onTap: () => _controller.animateToPage(entry.key),
+              //       child: Container(
+              //         width: 8.0,
+              //         height: 8.0,
+              //         margin:
+              //             EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+              //         decoration: BoxDecoration(
+              //           shape: BoxShape.circle,
+              //           color: _current == entry.key
+              //               ? Color.fromRGBO(0, 0, 0, 0.7)
+              //               : Color.fromRGBO(0, 0, 0, 0.15),
+              //         ),
+              //       ),
+              //     );
+              //   }).toList(),
+              // ),
               SizedBox(
                 height: 10,
               ),
