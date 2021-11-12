@@ -11,6 +11,9 @@ class HomePage extends StatelessWidget {
     'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
   ];
 
+  int _current = 0;
+  final CarouselController _controller = CarouselController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -177,24 +180,41 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               CarouselSlider(
-                  options: CarouselOptions(
+                options: CarouselOptions(
                     height: 180.0,
                     autoPlay: true,
-                    autoPlayAnimationDuration: Duration(milliseconds: 1500)
-                  ),
-                  items: imgList.map<Widget>((e) {
-                    return Container(
-                      margin:
-                          EdgeInsets.symmetric(horizontal: 4.0, vertical: 0.0),
+                    autoPlayAnimationDuration: Duration(milliseconds: 1500)),
+                items: imgList.map<Widget>((e) {
+                  return Container(
+                    margin:
+                        EdgeInsets.symmetric(horizontal: 4.0, vertical: 0.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16.0),
+                      image: DecorationImage(
+                          image: NetworkImage(e), fit: BoxFit.cover),
+                    ),
+                  );
+                }).toList(),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: imgList.asMap().entries.map((entry) {
+                  return GestureDetector(
+                    onTap: () => _controller.animateToPage(entry.key),
+                    child: Container(
+                      width: 12.0,
+                      height: 12.0,
+                      margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16.0),
-                        image: DecorationImage(
-                          image: NetworkImage(e),
-                          fit: BoxFit.cover
-                        ),
-                      ),
-                    );
-                  }).toList()),
+                          shape: BoxShape.circle,
+                          color: (Theme.of(context).brightness == Brightness.dark
+                              ? Colors.white
+                              : Colors.black)
+                              .withOpacity(_current == entry.key ? 0.9 : 0.4)),
+                    ),
+                  );
+                }).toList(),
+              ),
             ],
           ),
         ),
