@@ -75,6 +75,7 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox(height: 20),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Column(
                     children: [
@@ -108,6 +109,78 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Text(
                         "Zapatillas",
+                        style: TextStyle(fontWeight: FontWeight.w400),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Container(
+                        height: 80,
+                        width: 80,
+                        padding: EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.0),
+                          color: Colors.greenAccent,
+                          gradient: LinearGradient(
+                            colors: [
+                              Color(0xffC065DC),
+                              Color(0xff5B2AF6),
+                            ],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0xff5B2AF6).withOpacity(0.6),
+                              blurRadius: 7,
+                              offset: Offset(0, 4),
+                            ),
+                          ],
+                        ),
+                        child: Image.asset("assets/images/tshirt.png"),
+                      ),
+                      SizedBox(
+                        height: 12.0,
+                      ),
+                      Text(
+                        "Ropa",
+                        style: TextStyle(fontWeight: FontWeight.w400),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Container(
+                        height: 80,
+                        width: 80,
+                        padding: EdgeInsets.all(12.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.0),
+                          color: Colors.greenAccent,
+                          gradient: LinearGradient(
+                            colors: [
+                              Color(0xffFFCA53),
+                              Color(0xffFF7D02),
+                            ],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0xffFF7D02).withOpacity(0.6),
+                              blurRadius: 7,
+                              offset: Offset(0, 4),
+                            ),
+                          ],
+                        ),
+                        child: Image.asset("assets/images/cap.png"),
+                      ),
+                      SizedBox(
+                        height: 12.0,
+                      ),
+                      Text(
+                        "Accesorios",
                         style: TextStyle(fontWeight: FontWeight.w400),
                       ),
                     ],
