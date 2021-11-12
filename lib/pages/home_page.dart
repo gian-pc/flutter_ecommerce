@@ -77,9 +77,10 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   children: [
                     Container(
-                      height: 80,
+                      height: 76,
                       width: 140,
-                      margin: EdgeInsets.only(right: 12.0, bottom: 12.0),
+                      margin:
+                          EdgeInsets.only(right: 12.0, bottom: 12.0, left: 6),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30.0),
                         gradient: LinearGradient(
@@ -185,6 +186,24 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: [
+                  Text(
+                    "Promociones",
+                    style: TextStyle(
+                      color: Color(0xffFA4F3E),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 14,
+              ),
               CarouselSlider(
                 options: CarouselOptions(
                     height: 180.0,
@@ -226,6 +245,25 @@ class _HomePageState extends State<HomePage> {
                     ),
                   );
                 }).toList(),
+              ),
+
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: [
+                  Text(
+                    "Marcas",
+                    style: TextStyle(
+                      color: Color(0xffFA4F3E),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 14,
               ),
             ],
           ),
