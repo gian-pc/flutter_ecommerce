@@ -83,7 +83,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               ],
             ),
             Row(
-
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -92,36 +92,43 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     style: TextStyle(fontSize: 16.0),
                   ),
                 ),
-                Container(
-                  height: 40,
-                  width: 40,
-                  decoration: BoxDecoration(
-                    color: Color(0xff121212),
-                    borderRadius: BorderRadius.circular(14.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 40,
+                        width: 40,
+                        decoration: BoxDecoration(
+                          color: Color(0xff121212),
+                          borderRadius: BorderRadius.circular(14.0),
+                        ),
+                        child: Icon(
+                          CupertinoIcons.minus,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Container(
+                        width: 40,
+                        height: 40,
+                        alignment: Alignment.center,
+                        child: Text("0",style: TextStyle(fontSize: 20.0),),
+                      ),
+                      Container(
+                        height: 40,
+                        width: 40,
+                        decoration: BoxDecoration(
+                          color: Color(0xff121212),
+                          borderRadius: BorderRadius.circular(14.0),
+                        ),
+                        child: Icon(
+                          CupertinoIcons.plus,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
                   ),
-                  child: Icon(
-                    CupertinoIcons.minus,
-                    color: Colors.white,
-                  ),
-                ),
-                Container(
-                  width: 40,
-                  height: 40,
-                  alignment: Alignment.center,
-                  child: Text("0",style: TextStyle(fontSize: 20.0),),
-                ),
-                Container(
-                  height: 40,
-                  width: 40,
-                  decoration: BoxDecoration(
-                    color: Color(0xff121212),
-                    borderRadius: BorderRadius.circular(14.0),
-                  ),
-                  child: Icon(
-                    CupertinoIcons.plus,
-                    color: Colors.white,
-                  ),
-                ),
+                )
 
               ],
             ),
