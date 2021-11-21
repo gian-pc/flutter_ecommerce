@@ -58,8 +58,7 @@ class _ProductListPageState extends State<ProductListPage> {
                   color: Colors.transparent,
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: NetworkImage(
-                        "https://assets.adidas.com/images/w_600,f_auto,q_auto/6a0d6246e26a4852825dad3900baddfd_9366/Zapatillas_adidas_Ultraboost_x_LEGO(r)_Colors_Blanco_FZ3983_01_standard.jpg"),
+                    image: NetworkImage(e["image"]),
                   ),
                 ),
                 child: Stack(
@@ -84,10 +83,11 @@ class _ProductListPageState extends State<ProductListPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Zapatillas Supercourt",
+                            e["name"].toString().toUpperCase(),
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Color(0xff121212),
+                              fontSize: 13.0
                             ),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
@@ -96,7 +96,7 @@ class _ProductListPageState extends State<ProductListPage> {
                             height: 6,
                           ),
                           Text(
-                            "S/. 299.00",
+                            "S/ ${e["price"].}",
                             style: TextStyle(
                               fontWeight: FontWeight.normal,
                               fontSize: 13.0,
