@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.black87),
         title: Text(
-          "La tienda de Gian",
+          "Gian Store",
           style: TextStyle(
             color: Colors.black87,
             fontWeight: FontWeight.bold,
