@@ -70,12 +70,59 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   child: Text(
                     "ZAPATILLAS SUPERCOURI",
                     style: TextStyle(
-                      color: Colors.black54,
-                      fontSize: 16.0,
-                      fontFamily: 'Comfortaa-Bold'
-                    ),
+                        color: Colors.black54,
+                        fontSize: 16.0,
+                        fontFamily: 'Comfortaa-Bold'),
                   ),
                 ),
+                Icon(
+                  CupertinoIcons.checkmark_seal_fill,
+                  color: Colors.black54,
+                  size: 20.0,
+                ),
+              ],
+            ),
+            Row(
+
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Text(
+                    "S/ 299.00",
+                    style: TextStyle(fontSize: 16.0),
+                  ),
+                ),
+                Container(
+                  height: 40,
+                  width: 40,
+                  decoration: BoxDecoration(
+                    color: Color(0xff121212),
+                    borderRadius: BorderRadius.circular(14.0),
+                  ),
+                  child: Icon(
+                    CupertinoIcons.minus,
+                    color: Colors.white,
+                  ),
+                ),
+                Container(
+                  width: 40,
+                  height: 40,
+                  alignment: Alignment.center,
+                  child: Text("0",style: TextStyle(fontSize: 20.0),),
+                ),
+                Container(
+                  height: 40,
+                  width: 40,
+                  decoration: BoxDecoration(
+                    color: Color(0xff121212),
+                    borderRadius: BorderRadius.circular(14.0),
+                  ),
+                  child: Icon(
+                    CupertinoIcons.plus,
+                    color: Colors.white,
+                  ),
+                ),
+
               ],
             ),
             // Row(
