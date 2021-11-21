@@ -45,7 +45,53 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                       "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/cd6bed3b44e340938495ac7d0106ca60_9366/Tenis_Ultraboost_21_Amarillo_FY0373_01_standard.jpg"),
                 ),
               ),
-            )
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 16),
+                  child: Text(
+                    "ADIDAS",
+                    style: TextStyle(
+                      color: Colors.black54,
+                      fontSize: 14.0,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 16),
+                  child: Text(
+                    "ZAPATILLAS SUPERCOURI",
+                    style: TextStyle(
+                      color: Colors.black54,
+                      fontSize: 16.0,
+                      fontFamily: 'Comfortaa-Bold'
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            // Row(
+            //   children: [
+            //     Padding(
+            //       padding: const EdgeInsets.only(left: 16),
+            //       child: Text(
+            //         "Tomemos un momento para rendir homenaje a un ícono. ¿Será la leyenda que desafiaba la gravedad en los años 80? ¿O tal vez las zapatillas que le daban estatus a los pies de raperos? De hecho, ambas. Las zapatillas adidas Forum han dominado las canchas de básquet y las calles, y ahora regresan con una versión de corte medio para llevar tus pasos a otro nivel. Envuelve tus pies con un estilo inconfundible en piel revestida prémium para un look que exude clase.",
+            //         style: TextStyle(
+            //           color: Colors.black54,
+            //           fontSize: 18.0,
+            //         ),
+            //       ),
+            //     ),
+            //   ],
+            // ),
           ],
         ),
       ),
