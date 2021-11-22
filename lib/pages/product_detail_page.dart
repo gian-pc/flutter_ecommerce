@@ -7,6 +7,8 @@ class ProductDetailPage extends StatefulWidget {
 }
 
 class _ProductDetailPageState extends State<ProductDetailPage> {
+  int _quantity = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,40 +98,60 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Row(
                     children: [
-                      Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                          color: Color(0xff121212),
-                          borderRadius: BorderRadius.circular(14.0),
-                        ),
-                        child: Icon(
-                          CupertinoIcons.minus,
-                          color: Colors.white,
+                      GestureDetector(
+                        onTap: _quantity == 0
+                            ? () {}
+                            : () {
+                                _quantity--;
+                                setState(() {});
+                              },
+                        child: Container(
+                          height: 40,
+                          width: 40,
+                          decoration: BoxDecoration(
+                            color: _quantity == 0
+                                ? Colors.black38
+                                : Color(0xff121212),
+                            borderRadius: BorderRadius.circular(14.0),
+                          ),
+                          child: Icon(
+                            CupertinoIcons.minus,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                       Container(
                         width: 40,
                         height: 40,
                         alignment: Alignment.center,
-                        child: Text("0",style: TextStyle(fontSize: 20.0),),
-                      ),
-                      Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                          color: Color(0xff121212),
-                          borderRadius: BorderRadius.circular(14.0),
+                        child: Text(
+                          _quantity.toString(),
+                          style: TextStyle(
+                            fontSize: 20.0,
+                          ),
                         ),
-                        child: Icon(
-                          CupertinoIcons.plus,
-                          color: Colors.white,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          _quantity++;
+                          setState(() {});
+                        },
+                        child: Container(
+                          height: 40,
+                          width: 40,
+                          decoration: BoxDecoration(
+                            color: Color(0xff121212),
+                            borderRadius: BorderRadius.circular(14.0),
+                          ),
+                          child: Icon(
+                            CupertinoIcons.plus,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ],
                   ),
                 )
-
               ],
             ),
             // Row(
