@@ -4,6 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo3_ecommerce/api/api_service.dart';
+import 'package:flutter_codigo3_ecommerce/pages/product_list_page.dart';
 import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
@@ -29,7 +30,7 @@ class _HomePageState extends State<HomePage> {
 
   getData(){
     apiService.getBanners().then((value) => listBanner=value);
-    apiService.getBanners().then((value) => listBanner=value);
+    apiService.getBrands().then((value) => listBrand=value);
   }
 
 
@@ -112,41 +113,46 @@ class _HomePageState extends State<HomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Column(
-                    children: [
-                      Container(
-                        height: 80,
-                        width: 80,
-                        padding: EdgeInsets.all(8.0),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20.0),
-                          color: Colors.greenAccent,
-                          gradient: LinearGradient(
-                            colors: [
-                              Color(0xff69EDA4),
-                              Color(0xff21BE68),
-                            ],
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color(0xff21BE68).withOpacity(0.6),
-                              blurRadius: 7,
-                              offset: Offset(0, 4),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductListPage()));
+                    },
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 80,
+                          width: 80,
+                          padding: EdgeInsets.all(8.0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20.0),
+                            color: Colors.greenAccent,
+                            gradient: LinearGradient(
+                              colors: [
+                                Color(0xff69EDA4),
+                                Color(0xff21BE68),
+                              ],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
                             ),
-                          ],
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color(0xff21BE68).withOpacity(0.6),
+                                blurRadius: 7,
+                                offset: Offset(0, 4),
+                              ),
+                            ],
+                          ),
+                          child: Image.asset("assets/images/sneaker.png"),
                         ),
-                        child: Image.asset("assets/images/sneaker.png"),
-                      ),
-                      SizedBox(
-                        height: 12.0,
-                      ),
-                      Text(
-                        "Zapatillas",
-                        style: TextStyle(fontWeight: FontWeight.w400),
-                      ),
-                    ],
+                        SizedBox(
+                          height: 12.0,
+                        ),
+                        Text(
+                          "Zapatillas",
+                          style: TextStyle(fontWeight: FontWeight.w400),
+                        ),
+                      ],
+                    ),
                   ),
                   Column(
                     children: [
@@ -219,7 +225,7 @@ class _HomePageState extends State<HomePage> {
                         style: TextStyle(fontWeight: FontWeight.w400),
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
               SizedBox(height: 30),
