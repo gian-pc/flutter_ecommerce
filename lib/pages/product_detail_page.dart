@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo3_ecommerce/pages/cart_page.dart';
 
 class ProductDetailPage extends StatefulWidget {
   @override
@@ -104,9 +105,9 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                             onTap: _quantity == 0
                                 ? () {}
                                 : () {
-                              _quantity--;
-                              setState(() {});
-                            },
+                                    _quantity--;
+                                    setState(() {});
+                                  },
                             child: Container(
                               height: 40,
                               width: 40,
@@ -156,7 +157,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     )
                   ],
                 ),
-
                 SizedBox(
                   height: 16.0,
                 ),
@@ -174,11 +174,9 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     ),
                   ],
                 ),
-
                 SizedBox(
                   height: 16.0,
                 ),
-
                 Row(
                   children: [
                     Flexible(
@@ -211,7 +209,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     ),
                   ],
                 ),
-
                 SizedBox(
                   height: 80.0,
                 ),
@@ -225,16 +222,18 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               width: double.infinity,
               margin: EdgeInsets.symmetric(vertical: 4.0, horizontal: 20.0),
               child: ElevatedButton.icon(
-                onPressed: (){},
+                onPressed:_quantity!=0? () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>CartPage()));
+
+                }:(){},
                 icon: Icon(Icons.add_shopping_cart_rounded),
                 label: Text("Agregar al carrito"),
                 style: ElevatedButton.styleFrom(
                   primary: Color(0xff121212),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(14.0)
-                  )
+                    borderRadius: BorderRadius.circular(14.0),
+                  ),
                 ),
-
               ),
             ),
           )
