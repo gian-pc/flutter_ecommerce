@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo3_ecommerce/api/api_service.dart';
 import 'package:flutter_codigo3_ecommerce/pages/product_detail_page.dart';
 import 'package:http/http.dart' as http;
 
@@ -11,21 +12,21 @@ class ProductListPage extends StatefulWidget {
 
 class _ProductListPageState extends State<ProductListPage> {
   List listProduct = [];
+  APIService apiService = new APIService();
 
   @override
   initState() {
     super.initState();
-    getProducts();
+    getData();
   }
 
-  getProducts() async {
-    String _path = "http://192.168.1.5:8000/api/product/";
-    Uri _uri = Uri.parse(_path);
-    http.Response response = await http.get(_uri);
-    if (response.statusCode == 200) {
-      listProduct = json.decode(response.body);
-      setState(() {});
-    }
+  getData() {
+    apiService.getProducts().then((value) {
+      listProduct = value;
+      setState(() {
+
+      });
+    });
   }
 
   @override

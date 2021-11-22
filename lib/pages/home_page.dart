@@ -13,8 +13,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-
   int _current = 0;
   final CarouselController _controller = CarouselController();
   List listBanner = [];
@@ -25,16 +23,17 @@ class _HomePageState extends State<HomePage> {
   initState() {
     super.initState();
     getData();
-
   }
 
-  getData(){
-    apiService.getBanners().then((value) => listBanner=value);
-    apiService.getBrands().then((value) => listBrand=value);
+  getData() {
+    apiService.getBanners().then((value) {
+      listBanner = value;
+      setState(() {
+
+      });
+    });
+    apiService.getBrands().then((value) => listBrand = value);
   }
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -114,8 +113,11 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   GestureDetector(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductListPage()));
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ProductListPage()));
                     },
                     child: Column(
                       children: [
@@ -375,7 +377,8 @@ class _HomePageState extends State<HomePage> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16.0),
                       image: DecorationImage(
-                          image: NetworkImage(item["image"]), fit: BoxFit.cover),
+                          image: NetworkImage(item["image"]),
+                          fit: BoxFit.cover),
                     ),
                   );
                 }).toList(),
@@ -419,55 +422,55 @@ class _HomePageState extends State<HomePage> {
                 height: 14,
               ),
               GridView.count(
-                crossAxisCount: 2,
-                primary: true,
-                shrinkWrap: true,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-                physics: ScrollPhysics(),
-                children:listBrand.map<Widget>((item)=>ClipRRect(
-                  borderRadius: BorderRadius.circular(20.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20.0),
-                        color: Colors.greenAccent,
-                        image: DecorationImage(
-                            image: NetworkImage(
-                                item["image"]),
-                            fit: BoxFit.cover)),
-                    child: Stack(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [
-                                Color(0xff121212),
-                                Colors.transparent,
-                              ],
-                              begin: Alignment.bottomCenter,
-                              end: Alignment(0, 0.5),
-                            ),
-                          ),
-                        ),
-                        Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              item["brand"],
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15.0,
+                  crossAxisCount: 2,
+                  primary: true,
+                  shrinkWrap: true,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  physics: ScrollPhysics(),
+                  children: listBrand
+                      .map<Widget>((item) => ClipRRect(
+                            borderRadius: BorderRadius.circular(20.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  color: Colors.greenAccent,
+                                  image: DecorationImage(
+                                      image: NetworkImage(item["image"]),
+                                      fit: BoxFit.cover)),
+                              child: Stack(
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          Color(0xff121212),
+                                          Colors.transparent,
+                                        ],
+                                        begin: Alignment.bottomCenter,
+                                        end: Alignment(0, 0.5),
+                                      ),
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                        item["brand"],
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15.0,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                )).toList()
-              ),
+                          ))
+                      .toList()),
               SizedBox(
                 height: 14,
               ),
