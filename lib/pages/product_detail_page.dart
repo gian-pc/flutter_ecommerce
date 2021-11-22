@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_codigo3_ecommerce/pages/cart_page.dart';
 
 class ProductDetailPage extends StatefulWidget {
+  Map sneaker;
+  ProductDetailPage({required this.sneaker});
+
   @override
   _ProductDetailPageState createState() => _ProductDetailPageState();
 }
@@ -46,8 +49,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                         bottomRight: Radius.circular(40)),
                     image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: NetworkImage(
-                          "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/cd6bed3b44e340938495ac7d0106ca60_9366/Tenis_Ultraboost_21_Amarillo_FY0373_01_standard.jpg"),
+                      image: NetworkImage(widget.sneaker["image"]),
                     ),
                   ),
                 ),
@@ -59,7 +61,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     Padding(
                       padding: const EdgeInsets.only(left: 16),
                       child: Text(
-                        "ADIDAS",
+                        widget.sneaker["brand"].toString().toUpperCase(),
                         style: TextStyle(
                           color: Colors.black54,
                           fontSize: 14.0,
@@ -73,7 +75,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     Padding(
                       padding: const EdgeInsets.only(left: 16),
                       child: Text(
-                        "ZAPATILLAS SUPERCOURI",
+                        widget.sneaker["name"],
                         style: TextStyle(
                             color: Colors.black54,
                             fontSize: 16.0,
@@ -87,13 +89,16 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     ),
                   ],
                 ),
+                SizedBox(
+                  height: 10.0,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
                       child: Text(
-                        "S/ 299.00",
+                        "S/ ${widget.sneaker["price"]}",
                         style: TextStyle(fontSize: 16.0),
                       ),
                     ),
@@ -183,7 +188,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                       child: Padding(
                         padding: const EdgeInsets.only(left: 16, right: 16),
                         child: Text(
-                          "Tomemos un momento para rendir homenaje a un ícono. ¿Será la leyenda que desafiaba la gravedad en los años 80? ¿O tal vez las zapatillas que le daban estatus a los pies de raperos? De hecho, ambas. Las zapatillas adidas Forum han dominado las canchas de básquet y las calles, y ahora regresan con una versión de corte medio para llevar tus pasos a otro nivel. Envuelve tus pies con un estilo inconfundible en piel revestida prémium para un look que exude clase.",
+                          widget.sneaker["description"],
                           style: TextStyle(
                             color: Colors.black54,
                             fontSize: 14.0,
@@ -222,10 +227,14 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               width: double.infinity,
               margin: EdgeInsets.symmetric(vertical: 4.0, horizontal: 20.0),
               child: ElevatedButton.icon(
-                onPressed:_quantity!=0? () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>CartPage()));
-
-                }:(){},
+                onPressed: _quantity != 0
+                    ? () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => CartPage()));
+                      }
+                    : () {},
                 icon: Icon(Icons.add_shopping_cart_rounded),
                 label: Text("Agregar al carrito"),
                 style: ElevatedButton.styleFrom(
