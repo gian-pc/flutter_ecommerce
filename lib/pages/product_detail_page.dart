@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo3_ecommerce/models/product_model.dart';
 import 'package:flutter_codigo3_ecommerce/pages/cart_page.dart';
 
 class ProductDetailPage extends StatefulWidget {
-  Map sneaker;
+  ProductModel sneaker;
   ProductDetailPage({required this.sneaker});
 
   @override
@@ -49,7 +50,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                         bottomRight: Radius.circular(40)),
                     image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: NetworkImage(widget.sneaker["image"]),
+                      image: NetworkImage(widget.sneaker.image),
                     ),
                   ),
                 ),
@@ -61,7 +62,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     Padding(
                       padding: const EdgeInsets.only(left: 16),
                       child: Text(
-                        widget.sneaker["brand"].toString().toUpperCase(),
+                        widget.sneaker.brand.toString().toUpperCase(),
                         style: TextStyle(
                           color: Colors.black54,
                           fontSize: 14.0,
@@ -75,7 +76,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     Padding(
                       padding: const EdgeInsets.only(left: 16),
                       child: Text(
-                        widget.sneaker["name"],
+                        widget.sneaker.name,
                         style: TextStyle(
                             color: Colors.black54,
                             fontSize: 16.0,
@@ -98,7 +99,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
                       child: Text(
-                        "S/ ${widget.sneaker["price"]}",
+                        "S/ ${widget.sneaker.price}",
                         style: TextStyle(fontSize: 16.0),
                       ),
                     ),
@@ -188,7 +189,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                       child: Padding(
                         padding: const EdgeInsets.only(left: 16, right: 16),
                         child: Text(
-                          widget.sneaker["description"],
+                          widget.sneaker.description,
                           style: TextStyle(
                             color: Colors.black54,
                             fontSize: 14.0,

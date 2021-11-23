@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo3_ecommerce/api/api_service.dart';
+import 'package:flutter_codigo3_ecommerce/models/product_model.dart';
 import 'package:flutter_codigo3_ecommerce/pages/product_detail_page.dart';
 import 'package:http/http.dart' as http;
 
@@ -11,7 +12,7 @@ class ProductListPage extends StatefulWidget {
 }
 
 class _ProductListPageState extends State<ProductListPage> {
-  List listProduct = [];
+  List<ProductModel> listProduct = [];
   APIService apiService = new APIService();
 
   @override
@@ -74,7 +75,7 @@ class _ProductListPageState extends State<ProductListPage> {
                           color: Colors.transparent,
                           image: DecorationImage(
                             fit: BoxFit.cover,
-                            image: NetworkImage(e["image"]),
+                            image: NetworkImage(e.image),
                           ),
                         ),
                         child: Stack(
@@ -99,7 +100,7 @@ class _ProductListPageState extends State<ProductListPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    e["name"].toString().toUpperCase(),
+                                    e.name.toString().toUpperCase(),
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: Color(0xff121212),
@@ -111,7 +112,7 @@ class _ProductListPageState extends State<ProductListPage> {
                                     height: 6,
                                   ),
                                   Text(
-                                    "S/ ${e["price"]}",
+                                    "S/ ${e.price}",
                                     style: TextStyle(
                                       fontWeight: FontWeight.normal,
                                       fontSize: 13.0,
