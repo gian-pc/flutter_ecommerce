@@ -1,29 +1,29 @@
 import 'dart:convert';
 
-class BannerModel {
-  BannerModel({
+class BrandModel {
+  BrandModel({
     required this.id,
     required this.image,
-    required this.description,
+    required this.brand,
     required this.activated,
   });
 
   int id;
   String image;
-  String description;
+  String brand;
   bool activated;
 
-  factory BannerModel.fromJson(Map<String, dynamic> json) => BannerModel(
+  factory BrandModel.fromJson(Map<String, dynamic> json) => BrandModel(
     id: json["id"],
     image: json["image"],
-    description: json["description"],
+    brand: json["brand"],
     activated: json["activated"],
   );
 
   Map<String, dynamic> toJson() => {
     "id": id,
     "image": image,
-    "description": description,
+    "brand": brand,
     "activated": activated,
   };
 }

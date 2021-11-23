@@ -8,17 +8,17 @@ import 'package:http/http.dart' as http;
 
 class APIService {
 
- Future<List<Banner>> getBanners() async {
-    List<Banner> listBanner = [];
+ Future<List<BannerModel>> getBanners() async {
+    List<BannerModel> listBanner = [];
     String _path = "$pathApi/banner/";
     Uri _uri = Uri.parse(_path);
     http.Response response = await http.get(_uri);
     if (response.statusCode == 200) {
-      listBanner = json.decode(response.body).map<Banner>((item)=>Banner.fromJson(item)).toList();
-      print(listBanner);
+      listBanner = json.decode(response.body).map<BannerModel>((e){return BannerModel.fromJson(e);}).toList();
+
       return listBanner;
     }
-    return listBanner;
+    return [];
   }
 
 

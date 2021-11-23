@@ -4,6 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo3_ecommerce/api/api_service.dart';
+import 'package:flutter_codigo3_ecommerce/models/banner_model.dart';
 import 'package:flutter_codigo3_ecommerce/pages/product_list_page.dart';
 import 'package:http/http.dart' as http;
 
@@ -15,7 +16,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _current = 0;
   final CarouselController _controller = CarouselController();
-  List listBanner = [];
+  List<BannerModel> listBanner = [];
   List listBrand = [];
   APIService apiService = new APIService();
 
@@ -34,6 +35,8 @@ class _HomePageState extends State<HomePage> {
     });
     apiService.getBrands().then((value) => listBrand = value);
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -377,7 +380,7 @@ class _HomePageState extends State<HomePage> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16.0),
                       image: DecorationImage(
-                          image: NetworkImage(item["image"]),
+                          image: NetworkImage(item.image),
                           fit: BoxFit.cover),
                     ),
                   );
