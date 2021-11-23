@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo3_ecommerce/api/api_service.dart';
 import 'package:flutter_codigo3_ecommerce/models/banner_model.dart';
+import 'package:flutter_codigo3_ecommerce/models/brand_model.dart';
 import 'package:flutter_codigo3_ecommerce/pages/product_list_page.dart';
 import 'package:http/http.dart' as http;
 
@@ -17,7 +18,7 @@ class _HomePageState extends State<HomePage> {
   int _current = 0;
   final CarouselController _controller = CarouselController();
   List<BannerModel> listBanner = [];
-  List listBrand = [];
+  List<BrandModel> listBrand = [];
   APIService apiService = new APIService();
 
   @override
@@ -439,7 +440,7 @@ class _HomePageState extends State<HomePage> {
                                   borderRadius: BorderRadius.circular(20.0),
                                   color: Colors.greenAccent,
                                   image: DecorationImage(
-                                      image: NetworkImage(item["image"]),
+                                      image: NetworkImage(item.image),
                                       fit: BoxFit.cover)),
                               child: Stack(
                                 children: [
@@ -460,7 +461,7 @@ class _HomePageState extends State<HomePage> {
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
-                                        item["brand"],
+                                        item.brand,
                                         style: TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold,
